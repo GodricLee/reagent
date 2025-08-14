@@ -66,7 +66,11 @@ export function ModelProviderCredentialsForm({
         {extraFields
           ?.filter((f) => !(f.key in credentialsSchema))
           .map((f) => (
-            <div key={f.key}>
+            <div
+              key={f.key}
+              // 新增: 给 base_url 文本框往下挪一点（上方留白）
+              style={f.key === 'base_url' ? { marginTop: 12 } : undefined}
+            >
               <TextField
                 id={f.key}
                 label={f.label}
